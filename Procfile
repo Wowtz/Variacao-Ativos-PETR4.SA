@@ -1,1 +1,0 @@
-web: dotnet .\VariacaoAtivoApi\bin\Release\net8.0\publish\VariacaoAtivoApi.dll

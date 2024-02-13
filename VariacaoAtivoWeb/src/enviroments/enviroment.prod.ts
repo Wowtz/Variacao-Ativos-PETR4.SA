@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://variacaoativospetr.herokuapp.com'
+  apiUrl: 'https://meu-api-no-azure.azurewebsites.net'
 };

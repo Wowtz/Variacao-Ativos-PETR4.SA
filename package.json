@@ -1,6 +1,0 @@
-{
-  "name": "variacaoativospetr",
-  "scripts": {
-    "heroku-postbuild": "cd VariacaoAtivoApi && dotnet publish --configuration Release --output ./build && cd ../VariacaoAtivoWeb && npm install && ng build --prod"
-  }
-}
