@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using VariacaoAtivoApi.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,7 +41,12 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-app.UsePathBase("/browser");
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "browser")),
+    RequestPath = ""
+});
 
 app.MapFallbackToFile("browser/index.html");
 
