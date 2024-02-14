@@ -10,7 +10,15 @@ namespace VariacaoAtivoApi.Configuration
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString)
+                options.UseSqlServer(
+                    connectionString,
+                    sqlServerOptionsAction: sqlOptions =>
+                    {
+                        sqlOptions.EnableRetryOnFailure(
+                            maxRetryCount: 10,
+                            maxRetryDelay: TimeSpan.FromSeconds(30),
+                            errorNumbersToAdd: null);
+                    })
             );
 
             return services;
