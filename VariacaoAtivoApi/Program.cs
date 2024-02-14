@@ -40,6 +40,6 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-app.MapFallbackToFile("wwwroot/browser/index.html");
+app.MapFallbackToFile("browser/index.html");
 
 app.Run();
