@@ -20,13 +20,13 @@ jobs:
 
       - name: Build Angular app
         run: |
-          cd nome-do-seu-projeto-angular
+          cd VariacaoAtivoWeb
           npm install
           ng build --configuration production
 
       - name: Move Angular app to .NET app
         run: |
-          mv nome-do-seu-projeto-angular/dist/* nome-do-seu-projeto-dotnet/wwwroot
+          mv VariacaoAtivoWeb/dist/* VariacaoAtivoApi/wwwroot
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
