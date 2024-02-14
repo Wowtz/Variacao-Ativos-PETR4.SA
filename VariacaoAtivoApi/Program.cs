@@ -40,6 +40,6 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-app.MapFallbackToFile("variacao-ativo-web/browser/index.html");
+app.MapFallbackToFile("wwwroot/browser/index.html");
 
 app.Run();
