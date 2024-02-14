@@ -22,6 +22,7 @@ jobs:
         run: |
           cd VariacaoAtivoWeb
           npm install
+          npm install -g @angular/cli
           ng build --configuration production
 
       - name: Move Angular app to .NET app
