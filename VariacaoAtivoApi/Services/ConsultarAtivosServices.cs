@@ -48,7 +48,7 @@ namespace VariacaoAtivoApi.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao consultar o ativo.", ex);
+                throw new Exception("Ocorreu um erro ao consultar o ativo no banco." + ex.Message);
             }
         }
     }
