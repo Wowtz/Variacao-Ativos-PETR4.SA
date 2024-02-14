@@ -40,6 +40,8 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
+app.UsePathBase("/browser");
+
 app.MapFallbackToFile("browser/index.html");
 
 app.Run();
