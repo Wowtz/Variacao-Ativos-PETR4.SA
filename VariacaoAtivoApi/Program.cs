@@ -34,19 +34,12 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-if (!app.Environment.IsDevelopment())
-{
-    app.UsePathBase("/wwwroot/browser");
-    app.UseStaticFiles();
-}
-
 app.ConfiguracaoCors();
+
+app.UseStaticFiles();
 
 app.MapControllers();
 
-if (!app.Environment.IsDevelopment())
-{
-    app.MapFallbackToFile("index.html");
-}
+app.MapFallbackToFile("variacao-ativo-web/browser/index.html");
 
 app.Run();
