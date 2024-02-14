@@ -27,8 +27,16 @@ namespace VariacaoAtivosApi.Repositories
 
         public async Task<bool> Exists(string nome, DateTime data)
         {
-            return await _context.VariacaoAtivos
+            try
+            {
+                return await _context.VariacaoAtivos
                 .AnyAsync(x => x.Nome == nome && x.Data == data);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao consultar o ativo.", ex);
+            }
+            
         }
 
         public Task SaveChangesAsync()

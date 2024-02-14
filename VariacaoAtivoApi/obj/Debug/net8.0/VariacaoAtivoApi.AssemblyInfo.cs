@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VariacaoAtivoApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d465ac0eead27b9cd6b9db4b66b6648badb1dbea")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b338a60d16553953da2c059337138869ec1509c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("VariacaoAtivoApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VariacaoAtivoApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
