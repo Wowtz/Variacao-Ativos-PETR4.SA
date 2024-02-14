@@ -34,14 +34,18 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+if (!app.Environment.IsDevelopment())
+{
+    app.UsePathBase("/browser");
+    app.UseStaticFiles();
+}
+
 app.ConfiguracaoCors();
 
 app.MapControllers();
 
 if (!app.Environment.IsDevelopment())
 {
-    app.UseStaticFiles();
-    app.UsePathBase("/browser");
     app.MapFallbackToFile("index.html");
 }
 
