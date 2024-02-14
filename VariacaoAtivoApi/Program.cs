@@ -36,7 +36,7 @@ app.UseAuthorization();
 
 if (!app.Environment.IsDevelopment())
 {
-    app.UsePathBase("/browser");
+    app.UsePathBase("/wwwroot/browser");
     app.UseStaticFiles();
 }
 
