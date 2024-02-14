@@ -33,7 +33,7 @@ namespace VariacaoAtivoApi.Controllers
             }
             catch (Exception ex)
             {
-                AddErros("Ocorreu um erro ao buscar o Ativo: " + ex.Message);
+                AddErros("Ocorreu um na requisição: " + ex.Message);
                 return ResponseCustomizada();
             }
         }
