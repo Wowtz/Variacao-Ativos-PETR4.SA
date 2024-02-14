@@ -1,1 +1,2 @@
-project = <VariacaoATivoApi.sln>
+[config]
+command = bash deploy.sh

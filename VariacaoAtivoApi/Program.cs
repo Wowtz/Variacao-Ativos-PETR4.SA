@@ -16,6 +16,12 @@ builder.Services.AddSwaggerConfiguration();
 
 builder.Services.RegisterServices();
 
+var webRoot = Path.Combine(builder.Environment.ContentRootPath, "wwwroot");
+if (!Directory.Exists(webRoot))
+{
+    Directory.CreateDirectory(webRoot);
+}
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,6 +36,10 @@ app.UseAuthorization();
 
 app.ConfiguracaoCors();
 
+app.UseStaticFiles();
+
 app.MapControllers();
+
+app.MapFallbackToFile("index.html");
 
 app.Run();
