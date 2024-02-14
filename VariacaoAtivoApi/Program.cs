@@ -36,10 +36,13 @@ app.UseAuthorization();
 
 app.ConfiguracaoCors();
 
-app.UseStaticFiles();
-
 app.MapControllers();
 
-app.MapFallbackToFile("wwwroot/browser/index.html");
+if (!app.Environment.IsDevelopment())
+{
+    app.UseStaticFiles();
+    app.UsePathBase("/browser");
+    app.MapFallbackToFile("index.html");
+}
 
 app.Run();
