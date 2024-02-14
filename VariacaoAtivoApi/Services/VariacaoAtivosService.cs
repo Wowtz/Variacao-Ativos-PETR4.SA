@@ -45,10 +45,18 @@ namespace VariacaoAtivoApi.Services
         {
             foreach (var variacao in variacoesAtivos)
             {
-                if (!await _variacaoAtivosRepository.Exists(variacao.Nome, variacao.Data))
+                try
                 {
-                    await _variacaoAtivosRepository.AdicionarAsync(variacao);
+                    if (!await _variacaoAtivosRepository.Exists(variacao.Nome, variacao.Data))
+                    {
+                        await _variacaoAtivosRepository.AdicionarAsync(variacao);
+                    }
                 }
+                catch (Exception ex)
+                {
+                    throw new HttpRequestException($"Erro ao persistir dado: {ex.Message}");
+                }
+                
             }
             await _variacaoAtivosRepository.SaveChangesAsync();
         }

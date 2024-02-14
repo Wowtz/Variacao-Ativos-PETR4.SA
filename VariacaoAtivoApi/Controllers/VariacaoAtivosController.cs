@@ -25,7 +25,7 @@ namespace VariacaoAtivoApi.Controllers
                 var listaAtivos = await _consultarAtivosServices.ConsultarAtivo(consulta);
                 if (listaAtivos == null)
                 {
-                    AddErros("Fornecedor não encontrado.");
+                    AddErros("Ativo não encontrado.");
                     return ResponseCustomizada();
                 }
 
@@ -33,7 +33,7 @@ namespace VariacaoAtivoApi.Controllers
             }
             catch (Exception ex)
             {
-                AddErros("Ocorreu um erro ao buscar o fornecedor: " + ex.Message);
+                AddErros("Ocorreu um erro ao buscar o Ativo: " + ex.Message);
                 return ResponseCustomizada();
             }
         }

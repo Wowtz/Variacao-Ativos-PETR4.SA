@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "T1A3Hro5XLG0NuNrMAaDt22w8GIgdm/77tt+rbnRvW4=",
+  "Hash": "+lLwE91sCRl54/MUpZSH++/ZSvHBUjvkLh5TC1C/4HI=",
   "Source": "VariacaoAtivoApi",
   "BasePath": "_content/VariacaoAtivoApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "VariacaoAtivoApi\\wwwroot",
+      "Source": "VariacaoAtivoApi",
+      "ContentRoot": "C:\\Users\\walte\\source\\repos\\VariacaoAtivoApi\\VariacaoAtivoApi\\wwwroot\\",
+      "BasePath": "_content/VariacaoAtivoApi",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

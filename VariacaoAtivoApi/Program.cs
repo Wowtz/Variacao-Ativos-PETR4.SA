@@ -17,15 +17,17 @@ builder.Services.AddSwaggerConfiguration();
 
 builder.Services.RegisterServices();
 
-var webRoot = Path.Combine(builder.Environment.ContentRootPath, "wwwroot");
-if (!Directory.Exists(webRoot))
-{
-    Directory.CreateDirectory(webRoot);
-}
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    var webRoot = Path.Combine(builder.Environment.ContentRootPath, "wwwroot");
+    if (!Directory.Exists(webRoot))
+    {
+        Directory.CreateDirectory(webRoot);
+    }
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwaggerConfiguration();
@@ -37,17 +39,23 @@ app.UseAuthorization();
 
 app.ConfiguracaoCors();
 
-app.UseStaticFiles();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseStaticFiles();
+}
 
 app.MapControllers();
 
-app.UseStaticFiles(new StaticFileOptions
+if (!app.Environment.IsDevelopment())
 {
-    FileProvider = new PhysicalFileProvider(
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(
         Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "browser")),
-    RequestPath = ""
-});
+        RequestPath = ""
+    });
 
-app.MapFallbackToFile("browser/index.html");
+    app.MapFallbackToFile("browser/index.html");
+}
 
 app.Run();
